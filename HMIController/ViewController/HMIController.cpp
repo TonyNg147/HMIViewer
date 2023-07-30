@@ -1,6 +1,6 @@
 #include "HMIController.h"
-#include "../Defines/Defines.h"
-#include "../ScreenManager/ScreenManager.h"
+#include <Defines.h>
+#include <ScreenManager.h>
 Event_Register HMIController::mEvents;
 HMIController::HMIController(QObject* parent )
     :QObject{parent}
@@ -24,9 +24,9 @@ HMIController& HMIController::getInstance(){
     static HMIController instance;
     return instance;
 }
-void HMIController::registerState(){
-    for (size_t idx = 0; idx < size(SYSTEM_ALL_STATE) ; ++idx){
-        for (size_t eventId = 0; eventId < SYSTEM_ALL_STATE[idx].eventSize ; ++eventId){
+void HMIController::registerState(SystemState* SYSTEM_ALL_STATE, qsizetype stateSize){
+    for (qsizetype idx = 0; idx < stateSize ; ++idx){
+        for (qsizetype eventId = 0; eventId < SYSTEM_ALL_STATE[idx].eventSize ; ++eventId){
             qDebug()<<"register herere " << idx;
             mEvents[SYSTEM_ALL_STATE[idx].stateEvent[eventId].eventId] = SYSTEM_ALL_STATE[idx].stateEvent[eventId].destState;
         }

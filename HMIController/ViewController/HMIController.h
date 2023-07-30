@@ -5,7 +5,7 @@
 #include <QQuickView>
 #include <QQmlContext>
 #include <QQmlEngine>
-#include "../Defines/ViewDefines.h"
+#include <ViewStructs.h>
 typedef QMap<uint16_t,State> Event_Register;
 class HMIController: public QObject{
     Q_OBJECT
@@ -13,7 +13,7 @@ class HMIController: public QObject{
         HMIController(QObject* parent = nullptr);
     public:
         static HMIController& getInstance();
-        static void registerState();
+        static void registerState(SystemState*, qsizetype);
         void show(){
             mView->show();
         }

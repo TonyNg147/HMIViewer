@@ -1,6 +1,6 @@
 #ifndef SCREEN_MANAGER_H
 #define SCREEN_MANAGER_H
-#include "../Defines/ViewStructs.h"
+#include <ViewStructs.h>
 #include <QQmlContext>
 #include <QQmlEngine>
 class ScreenManagerPrivate; 
