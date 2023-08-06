@@ -1,0 +1,22 @@
+project(APP_MAN)
+cmake_minimum_required(VERSION 3.6)
+if(QT_VERSION)
+  message("ALread config")
+else()
+  message(FATAL_ERROR "Error - Config Qt version before building project")
+endif()
+set(CMAKE_PREFIX_PATH "~/Qt/${QT_VERSION}/gcc_64")
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+if(NOT DEFINED INSTALL_EXAMPLESDIR)
+  set(INSTALL_EXAMPLESDIR "Qt")
+endif()
+set(INSTALL_EXAMPLEDIR "${INSTALL_EXAMPLESDIR}/applicationmanager/AM")
+message(${INSTALL_EXAMPLEDIR})
+find_package(Qt6 COMPONENTS AppManMainPrivate)
+qt6_am_add_systemui_wrapper(AM
+    CONFIG_YAML am-config.yaml
+    EXTRA_FILES apps system-ui
+)
+add_subdirectory(native)

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/HMI">
+        <file>CenterDisplay.qml</file>
+    </qresource>
+</RCC>
