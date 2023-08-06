@@ -9,6 +9,7 @@ ContextManager& ContextManager::getInstance(QQmlEngine* engine){
 }
 ContextManager::ContextManager(QQmlEngine* engine){
     if (engine){
+        printf("Init object hererere \n");
         gEngine         = engine;
         singletonObject = this;
     }else{

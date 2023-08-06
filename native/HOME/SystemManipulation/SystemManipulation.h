@@ -3,7 +3,7 @@
 #include <QQmlEngine>
 #include "UIControl/UIControl.h"
 #include "ContextManager/ContextManager.h"
-#include <QQuickView>
+#include <QQuickWindow>
 #include <QQmlComponent>
 class SystemManipulation{
     private:
@@ -17,7 +17,7 @@ class SystemManipulation{
         ContextManager&    mContextMng;
         UIControl&          mUIControl;
 
-        QQuickView*        mCenterView;
+        QQuickWindow*        mCenterView;
 
 };
 #endif 

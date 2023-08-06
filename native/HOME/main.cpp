@@ -21,12 +21,13 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         UIPro::registerProes();
         uicommon::init();
         Main a(argc, argv);
-        SystemManipulation::applyEngine(a.qmlEngine());
-        SystemManipulation* sysManipulate = SystemManipulation::getInstance();
+        
         Configuration cfg;
         cfg.parseWithArguments(QCoreApplication::arguments());
         
         a.setup(&cfg);
+        SystemManipulation::applyEngine(a.qmlEngine());
+        SystemManipulation* sysManipulate = SystemManipulation::getInstance();
         a.loadQml(cfg.loadDummyData());
         a.showWindow(cfg.fullscreen() && !cfg.noFullscreen());
 

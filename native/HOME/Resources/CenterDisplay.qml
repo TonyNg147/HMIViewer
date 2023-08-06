@@ -1,7 +1,7 @@
 import QtQuick 2.11
 import QtQuick.Window 2.11
 import QtApplicationManager.SystemUI 2.0
-Item{
+Window{
     visible: true
     width: 1280
     height: 800

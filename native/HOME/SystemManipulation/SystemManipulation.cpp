@@ -18,11 +18,12 @@ SystemManipulation::SystemManipulation()
     ,mUIControl{UIControl::getInstance()}
 {
     QQmlComponent* centerView = new QQmlComponent(gEngine,"qrc:/HMI/CenterDisplay.qml");
-    mCenterView = qobject_cast<QQuickView*>(centerView->create(gEngine->rootContext()));
+    if(centerView->errorString().size()){
+        qWarning()<<"Error when create main window "<<centerView->errorString();
+    }
+    mCenterView = qobject_cast<QQuickWindow*>(centerView->create(gEngine->rootContext()));
     delete centerView;
-    qWarning()<<__LINE__;
     mContextMng.registerProperty("CENTER_DISPLAY",QVariant::fromValue(mCenterView));
-    qWarning()<<__LINE__;
 }
 
 SystemManipulation::~SystemManipulation(){
